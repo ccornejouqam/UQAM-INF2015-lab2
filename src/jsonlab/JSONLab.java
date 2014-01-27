@@ -17,16 +17,33 @@ public class JSONLab {
 
     public static void main(String[] args) 
             throws Exception {
-       
+            readJSONArray();
+            readSeveralJSONArrays();
+    }
+    
+    public static void readJSONArray() 
+            throws Exception {
         String filename = "myjsonfile.json";
-        String txtJson = FileReader.loadFileIntoString(filename, "UTF-8");
-        
-        JSONArray root = (JSONArray)JSONSerializer.toJSON(txtJson);
-        
+        String txtJson = FileReader.loadFileIntoString(filename, "UTF-8");       
+        JSONArray root = (JSONArray)JSONSerializer.toJSON(txtJson);        
         for (int i=0; i < root.size(); i++) {
             String day = root.getString(i);
             System.out.println(day);
-        }
+        }   
     }
     
+    public static void readSeveralJSONArrays()
+            throws Exception {
+        String filename = "newjson.json";
+        String txtJson = FileReader.loadFileIntoString(filename, "UTF-8");       
+        JSONArray root = (JSONArray)JSONSerializer.toJSON(txtJson);        
+        for (int i=0; i < root.size(); i++) {
+            JSONObject document = root.getJSONObject(i);
+            JSONArray personnages = (JSONArray)document.get("personnages");
+            for (int j=0; j < personnages.size(); j++) {
+                String personnage = personnages.getString(j);
+                System.out.println(personnage);
+            }
+        }        
+    }
 }

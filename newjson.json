@@ -1,3 +1,17 @@
-{
-    "name": "Christian"
-}
+[
+    {
+        "personnages": [
+            "perceval",
+            "arthur",
+            "lancelot",
+            "karadoc"
+        ]
+    },
+    {
+        "personnages": [
+            "daenarys",
+            "sam",
+            "jon"
+        ]
+    }
+]
